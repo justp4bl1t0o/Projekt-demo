@@ -1,0 +1,171 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+
+export default function PremiumSite() {
+  const [open, setOpen] = useState(false);
+
+  const nav = [
+    "Strona główna",
+    "O mnie",
+    "Oferta",
+    "Zespół",
+    "Referencje",
+    "Realizacje",
+    "Kontakt",
+  ];
+
+  return (
+    <div className="bg-black text-white min-h-screen scroll-smooth">
+      {/* NAVBAR */}
+      <div className="fixed top-0 w-full z-50 bg-black/70 backdrop-blur border-b border-yellow-500/20">
+        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+          <div className="text-xl tracking-widest font-light">
+            PREMIUM<span className="text-yellow-500">.EXPERT</span>
+          </div>
+
+          <div className="hidden md:flex gap-6 text-sm text-gray-300">
+            {nav.map((item) => (
+              <a
+                key={item}
+                href={`#${item}`}
+                className="hover:text-yellow-400 transition"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+
+          <button className="md:hidden" onClick={() => setOpen(!open)}>
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
+
+        {open && (
+          <div className="md:hidden flex flex-col bg-black border-t border-yellow-500/20">
+            {nav.map((item) => (
+              <a
+                key={item}
+                href={`#${item}`}
+                onClick={() => setOpen(false)}
+                className="p-4 border-b border-white/5 hover:bg-white/5"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* HERO */}
+      <section id="Strona główna" className="h-screen flex items-center justify-center text-center px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-4xl md:text-6xl font-light">
+            Nowoczesna marka
+            <span className="text-yellow-500"> edukacji i rozwoju</span>
+          </h1>
+          <p className="text-gray-400 mt-4 max-w-xl mx-auto">
+            Szkolenia, projekty społeczne i rozwój kompetencji w eleganckiej
+            formie premium.
+          </p>
+
+          <a
+            href="#Oferta"
+            className="mt-8 inline-block px-6 py-3 border border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-black transition"
+          >
+            Zobacz ofertę
+          </a>
+        </motion.div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="O mnie" className="py-24 px-6 max-w-5xl mx-auto">
+        <h2 className="text-3xl text-yellow-500 mb-6">O mnie</h2>
+        <p className="text-gray-300 leading-relaxed">
+          Tworzymy nowoczesne rozwiązania edukacyjne i społeczne, które łączą
+          profesjonalizm z realnym wpływem na rozwój ludzi i organizacji.
+        </p>
+      </section>
+
+      {/* OFFER */}
+      <section id="Oferta" className="py-24 px-6 bg-white/5">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl text-yellow-500 mb-10">Oferta</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              "Szkolenia biznesowe",
+              "Projekty społeczne",
+              "Rozwój kompetencji",
+              "Warsztaty edukacyjne",
+              "Organizacja wydarzeń",
+              "Konsulting strategiczny",
+            ].map((item) => (
+              <div
+                key={item}
+                className="p-6 border border-yellow-500/20 hover:border-yellow-500 transition"
+              >
+                <h3 className="text-lg text-white">{item}</h3>
+                <p className="text-gray-400 text-sm mt-2">
+                  Profesjonalne podejście i indywidualne rozwiązania.
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TEAM */}
+      <section id="Zespół" className="py-24 px-6 max-w-6xl mx-auto">
+        <h2 className="text-3xl text-yellow-500 mb-10">Zespół</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="text-center">
+              <div className="h-40 bg-white/10 mb-4" />
+              <h3 className="text-white">Ekspert {i}</h3>
+              <p className="text-gray-400 text-sm">Specjalista ds. rozwoju</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* REFERENCES */}
+      <section id="Referencje" className="py-24 px-6 bg-white/5">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl text-yellow-500 mb-10">Referencje</h2>
+          <p className="text-gray-300 italic">
+            "Profesjonalizm, nowoczesność i realne efekty współpracy."
+          </p>
+        </div>
+      </section>
+
+      {/* PROJECTS */}
+      <section id="Realizacje" className="py-24 px-6 max-w-6xl mx-auto">
+        <h2 className="text-3xl text-yellow-500 mb-10">Realizacje</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div key={i} className="h-40 bg-white/10 hover:bg-white/20 transition" />
+          ))}
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="Kontakt" className="py-24 px-6 bg-black border-t border-yellow-500/20">
+        <div className="max-w-xl mx-auto">
+          <h2 className="text-3xl text-yellow-500 mb-6">Kontakt</h2>
+          <form className="flex flex-col gap-4">
+            <input className="p-3 bg-white/5 border border-white/10" placeholder="Imię" />
+            <input className="p-3 bg-white/5 border border-white/10" placeholder="Email" />
+            <textarea className="p-3 bg-white/5 border border-white/10" placeholder="Wiadomość" />
+            <button className="p-3 border border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-black transition">
+              Wyślij
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+  );
+}
