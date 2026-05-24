@@ -1,80 +1,144 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Menu, X, Instagram, Facebook, Linkedin } from "lucide-react";
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Premium Expert</title>
 
-export default function PremiumSite() {
-  const [open, setOpen] = useState(false);
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  const nav = [
-    { name: "Strona główna", id: "home" },
-    { name: "O mnie", id: "about" },
-    { name: "Oferta", id: "offer" },
-    { name: "Zespół", id: "team" },
-    { name: "Referencje", id: "references" },
-    { name: "Realizacje", id: "projects" },
-    { name: "Kontakt", id: "contact" },
-  ];
+<style>
+  html { scroll-behavior: smooth; }
+</style>
+</head>
 
-  return (
-    <div className="bg-black text-white min-h-screen scroll-smooth">
-      {/* NAVBAR */}
-      <header className="fixed top-0 w-full z-50 bg-black/70 backdrop-blur border-b border-yellow-500/20">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
-          <div className="text-xl tracking-widest font-light">
-            PREMIUM<span className="text-yellow-500">.EXPERT</span>
-          </div>
+<body class="bg-black text-white">
 
-          <nav className="hidden md:flex gap-6 text-sm text-gray-300">
-            {nav.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="hover:text-yellow-400 transition"
-              >
-                {item.name}
-              </a>
-            ))}
-          </nav>
+<!-- NAV -->
+<header class="fixed w-full top-0 z-50 bg-black/70 backdrop-blur border-b border-yellow-500/20">
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    
+    <div class="text-xl tracking-widest">
+      PREMIUM<span class="text-yellow-500">.EXPERT</span>
+    </div>
 
-          <button className="md:hidden" onClick={() => setOpen(!open)}>
-            {open ? <X /> : <Menu />}
-          </button>
-        </div>
+    <nav class="hidden md:flex gap-6 text-sm text-gray-300">
+      <a href="#home" class="hover:text-yellow-400">Start</a>
+      <a href="#about" class="hover:text-yellow-400">O mnie</a>
+      <a href="#offer" class="hover:text-yellow-400">Oferta</a>
+      <a href="#team" class="hover:text-yellow-400">Zespół</a>
+      <a href="#ref" class="hover:text-yellow-400">Referencje</a>
+      <a href="#work" class="hover:text-yellow-400">Realizacje</a>
+      <a href="#contact" class="hover:text-yellow-400">Kontakt</a>
+    </nav>
 
-        {open && (
-          <div className="md:hidden flex flex-col bg-black border-t border-yellow-500/20">
-            {nav.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={() => setOpen(false)}
-                className="p-4 border-b border-white/5 hover:bg-white/5"
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
-        )}
-      </header>
+  </div>
+</header>
 
-      {/* HERO */}
-      <section
-        id="home"
-        className="h-screen flex items-center justify-center text-center px-6 bg-gradient-to-b from-black via-black to-zinc-900"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-4xl md:text-6xl font-light leading-tight">
-            Nowoczesna marka
-            <span className="text-yellow-500"> edukacji, rozwoju i projektów</span>
-          </h1>
+<!-- HERO -->
+<section id="home" class="h-screen flex items-center justify-center text-center px-6">
+  <div>
+    <h1 class="text-4xl md:text-6xl font-light">
+      Nowoczesna marka<br/>
+      <span class="text-yellow-500">edukacji i rozwoju</span>
+    </h1>
 
-          <p className="text-gray-400 mt-6 max-w-xl mx-auto">
-            Szkolenia, projekty społeczne, rozwój kompetencji i organizacja wydarzeń
-            w estetyce premium.
-          </p>
+    <p class="text-gray-400 mt-6 max-w-xl mx-auto">
+      Szkolenia, projekty społeczne i rozwój kompetencji w estetyce premium.
+    </p>
 
-}
+    <a href="#offer"
+       class="mt-8 inline-block px-6 py-3 border border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-black transition">
+      Zobacz ofertę
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 max-w-5xl mx-auto">
+  <h2 class="text-3xl text-yellow-500 mb-6">O mnie</h2>
+  <p class="text-gray-300 leading-relaxed">
+    Tworzymy nowoczesne rozwiązania edukacyjne i społeczne, które budują realny rozwój ludzi i organizacji.
+  </p>
+</section>
+
+<!-- OFFER -->
+<section id="offer" class="py-24 px-6 bg-white/5">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl text-yellow-500 mb-10">Oferta</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <div class="p-6 border border-yellow-500/20 hover:border-yellow-500">
+        Szkolenia biznesowe
+      </div>
+
+      <div class="p-6 border border-yellow-500/20 hover:border-yellow-500">
+        Projekty społeczne
+      </div>
+
+      <div class="p-6 border border-yellow-500/20 hover:border-yellow-500">
+        Rozwój kompetencji
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="py-24 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl text-yellow-500 mb-10">Zespół</h2>
+
+  <div class="grid md:grid-cols-3 gap-6 text-center">
+    <div class="p-6 border border-white/10">Ekspert Strategii</div>
+    <div class="p-6 border border-white/10">Specjalista Edukacji</div>
+    <div class="p-6 border border-white/10">Koordynator Projektów</div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="ref" class="py-24 px-6 bg-white/5 text-center">
+  <h2 class="text-3xl text-yellow-500 mb-10">Referencje</h2>
+  <p class="text-gray-300 italic">
+    „Profesjonalizm i najwyższy poziom współpracy.”
+  </p>
+</section>
+
+<!-- WORK -->
+<section id="work" class="py-24 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl text-yellow-500 mb-10">Realizacje</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="h-40 bg-white/10"></div>
+    <div class="h-40 bg-white/10"></div>
+    <div class="h-40 bg-white/10"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6 border-t border-yellow-500/20">
+  <div class="max-w-xl mx-auto">
+    
+    <h2 class="text-3xl text-yellow-500 mb-6">Kontakt</h2>
+
+    <form class="flex flex-col gap-4">
+      <input class="p-3 bg-white/5 border border-white/10" placeholder="Imię"/>
+      <input class="p-3 bg-white/5 border border-white/10" placeholder="Email"/>
+      <textarea class="p-3 bg-white/5 border border-white/10" placeholder="Wiadomość"></textarea>
+
+      <button class="p-3 border border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-black">
+        Wyślij
+      </button>
+    </form>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-gray-500 border-t border-white/10">
+  © 2026 PREMIUM.EXPERT
+</footer>
+
+</body>
+</html>
