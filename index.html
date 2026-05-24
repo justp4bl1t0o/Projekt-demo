@@ -10,44 +10,48 @@
 <style>
 html { scroll-behavior: smooth; }
 
-/* Premium animations */
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(.16,1,.3,1);
 }
 .fade-in.show {
   opacity: 1;
   transform: translateY(0);
 }
 
+.scale-hover {
+  transition: all .5s ease;
+}
+.scale-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(234,179,8,0.15);
+}
+
 .glow {
-  box-shadow: 0 0 30px rgba(234,179,8,0.15);
+  box-shadow: 0 0 40px rgba(234,179,8,0.12);
 }
 </style>
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-black text-white overflow-x-hidden">
 
-<!-- NAV -->
 <header class="fixed top-0 w-full z-50 bg-black/60 backdrop-blur border-b border-yellow-500/20">
   <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
 
-    <div class="text-xl tracking-widest">
-      PREMIUM<span class="text-yellow-500">.EXPERT</span>
-    </div>
+    <div class="text-xl tracking-widest">PREMIUM<span class="text-yellow-500">.EXPERT</span></div>
 
     <nav class="hidden md:flex gap-6 text-sm text-gray-300">
-      <a href="#home" class="hover:text-yellow-400">Start</a>
-      <a href="#about" class="hover:text-yellow-400">O mnie</a>
-      <a href="#offer" class="hover:text-yellow-400">Oferta</a>
-      <a href="#team" class="hover:text-yellow-400">Zespół</a>
-      <a href="#references" class="hover:text-yellow-400">Referencje</a>
-      <a href="#projects" class="hover:text-yellow-400">Realizacje</a>
-      <a href="#contact" class="hover:text-yellow-400">Kontakt</a>
+      <a href="#home">Start</a>
+      <a href="#about">O mnie</a>
+      <a href="#offer">Oferta</a>
+      <a href="#team">Zespół</a>
+      <a href="#references">Referencje</a>
+      <a href="#projects">Realizacje</a>
+      <a href="#contact">Kontakt</a>
     </nav>
 
-    <button id="menuBtn" class="md:hidden text-white">☰</button>
+    <button id="menuBtn" class="md:hidden text-2xl">☰</button>
   </div>
 
   <div id="mobileMenu" class="hidden flex flex-col bg-black border-t border-yellow-500/20">
@@ -61,55 +65,51 @@ html { scroll-behavior: smooth; }
   </div>
 </header>
 
-<!-- HERO -->
-<section id="home" class="h-screen flex items-center justify-center text-center px-6 bg-gradient-to-b from-black via-black to-zinc-900">
-  <div class="fade-in">
-    <h1 class="text-4xl md:text-6xl font-light">
-      Nowoczesna marka
-      <span class="text-yellow-500"> edukacji i projektów społecznych</span>
-    </h1>
+<section id="home" class="h-screen flex items-center justify-center text-center px-6 relative">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80" class="w-full h-full object-cover opacity-30" />
+  </div>
+  <div class="absolute inset-0 bg-black/70"></div>
 
-    <p class="text-gray-400 mt-6 max-w-xl mx-auto">
-      Szkolenia, rozwój kompetencji i projekty społeczne w estetyce premium.
-    </p>
-
-    <a href="#offer" class="mt-8 inline-block px-6 py-3 border border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-black transition">
-      Zobacz ofertę
-    </a>
+  <div class="relative fade-in">
+    <h1 class="text-4xl md:text-6xl">Nowoczesna marka <span class="text-yellow-500">edukacji i projektów</span></h1>
+    <p class="text-gray-400 mt-6">Szkolenia, projekty społeczne i rozwój kompetencji.</p>
+    <a href="#offer" class="mt-10 inline-block px-6 py-3 border border-yellow-500 text-yellow-400">Zobacz ofertę</a>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="py-28 px-6 max-w-5xl mx-auto fade-in">
-  <h2 class="text-3xl text-yellow-500 mb-6">O mnie</h2>
-  <p class="text-gray-300 leading-relaxed">
-    Tworzymy nowoczesne rozwiązania edukacyjne i społeczne, które łączą strategię, doświadczenie i estetykę premium. Budujemy marki eksperckie oraz projekty o realnym wpływie.
-  </p>
+<section id="about" class="py-28 px-6 max-w-6xl mx-auto fade-in">
+  <div class="grid md:grid-cols-2 gap-10 items-center">
+    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" class="rounded-xl scale-hover" />
+    <div>
+      <h2 class="text-3xl text-yellow-500 mb-6">O mnie</h2>
+      <p class="text-gray-300">Tworzymy nowoczesne rozwiązania edukacyjne i społeczne o wysokiej jakości i estetyce premium.</p>
+    </div>
+  </div>
 </section>
 
-<!-- OFFER -->
 <section id="offer" class="py-28 px-6 bg-white/5 fade-in">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl text-yellow-500 mb-10">Oferta</h2>
-
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="p-6 border border-yellow-500/20 hover:border-yellow-500 transition glow">
+      <div class="p-6 border border-yellow-500/20 scale-hover">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="mb-4 rounded" />
         Szkolenia biznesowe
       </div>
-      <div class="p-6 border border-yellow-500/20 hover:border-yellow-500 transition glow">
+      <div class="p-6 border border-yellow-500/20 scale-hover">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" class="mb-4 rounded" />
         Projekty społeczne
       </div>
-      <div class="p-6 border border-yellow-500/20 hover:border-yellow-500 transition glow">
+      <div class="p-6 border border-yellow-500/20 scale-hover">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80" class="mb-4 rounded" />
         Rozwój kompetencji
       </div>
     </div>
   </div>
 </section>
 
-<!-- TEAM -->
 <section id="team" class="py-28 px-6 max-w-6xl mx-auto fade-in">
   <h2 class="text-3xl text-yellow-500 mb-10">Zespół</h2>
-
   <div class="grid md:grid-cols-3 gap-6 text-center">
     <div class="p-6 border border-white/10">Ekspert Strategii</div>
     <div class="p-6 border border-white/10">Specjalista Edukacji</div>
@@ -117,65 +117,46 @@ html { scroll-behavior: smooth; }
   </div>
 </section>
 
-<!-- REFERENCES -->
 <section id="references" class="py-28 px-6 bg-white/5 text-center fade-in">
   <h2 class="text-3xl text-yellow-500 mb-10">Referencje</h2>
-  <p class="text-gray-300 italic text-lg">
-    „Profesjonalizm, estetyka i realne efekty współpracy na najwyższym poziomie.”
-  </p>
+  <p class="text-gray-300 italic">„Najwyższy poziom profesjonalizmu.”</p>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="py-28 px-6 max-w-6xl mx-auto fade-in">
   <h2 class="text-3xl text-yellow-500 mb-10">Realizacje</h2>
-
   <div class="grid md:grid-cols-3 gap-6">
-    <div class="h-44 bg-white/10 rounded-xl"></div>
-    <div class="h-44 bg-white/10 rounded-xl"></div>
-    <div class="h-44 bg-white/10 rounded-xl"></div>
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" class="rounded-xl scale-hover" />
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" class="rounded-xl scale-hover" />
+    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" class="rounded-xl scale-hover" />
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="py-28 px-6 fade-in">
   <div class="max-w-xl mx-auto">
     <h2 class="text-3xl text-yellow-500 mb-6">Kontakt</h2>
-
     <form class="flex flex-col gap-4">
       <input class="p-3 bg-white/5 border border-white/10" placeholder="Imię" />
       <input class="p-3 bg-white/5 border border-white/10" placeholder="Email" />
       <textarea class="p-3 bg-white/5 border border-white/10" placeholder="Wiadomość"></textarea>
-
-      <button class="p-3 border border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-black transition">
-        Wyślij
-      </button>
+      <button class="p-3 border border-yellow-500 text-yellow-400">Wyślij</button>
     </form>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="py-10 text-center text-gray-500 border-t border-white/10">
-  © 2026 PREMIUM.EXPERT
-</footer>
+<footer class="py-10 text-center text-gray-500 border-t border-white/10">© 2026 PREMIUM.EXPERT</footer>
 
 <script>
-// mobile menu
 const btn = document.getElementById('menuBtn');
 const menu = document.getElementById('mobileMenu');
 btn.onclick = () => menu.classList.toggle('hidden');
 
-// scroll animations
-const elements = document.querySelectorAll('.fade-in');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
+const els = document.querySelectorAll('.fade-in');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('show');
   });
-},{threshold: 0.15});
-
-elements.forEach(el => observer.observe(el));
+},{threshold:0.15});
+els.forEach(e => obs.observe(e));
 </script>
 
 </body>
